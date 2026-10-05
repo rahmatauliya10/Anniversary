@@ -1473,6 +1473,228 @@
       }
     }
 
+    /* ==========================================
+       LITTLE MEMORIES SECTION ("Hal-hal kecil yang masih sering aku ingat")
+       ========================================== */
+    .little-memories-section {
+      margin: 32px 0 40px;
+      padding: 26px 20px;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(254, 246, 248, 0.88));
+      border: 1px solid rgba(224, 122, 143, 0.3);
+      border-radius: 22px;
+      box-shadow: 0 12px 30px rgba(120, 50, 70, 0.05);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      text-align: left;
+    }
+
+    .little-memories-header {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .little-memories-title {
+      font-size: clamp(1.35rem, 4vw, 1.75rem);
+      color: #3b2229;
+      font-family: 'Playfair Display', Georgia, serif;
+      margin: 6px 0 4px;
+      font-weight: 700;
+    }
+
+    .little-memories-subtitle {
+      font-size: 0.9rem;
+      color: #7d5f66;
+      margin: 0;
+    }
+
+    .little-memories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+    }
+
+    .little-memory-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 13px 15px;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(230, 160, 175, 0.35);
+      border-radius: 14px;
+      box-shadow: 0 4px 10px rgba(160, 70, 90, 0.04);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .little-memory-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(160, 70, 90, 0.08);
+      border-color: rgba(212, 102, 124, 0.5);
+    }
+
+    .little-memory-card .lm-icon {
+      font-size: 1.3rem;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .little-memory-card p {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #4a2e35;
+      font-weight: 500;
+    }
+
+    /* Secret Memory Badge & Box */
+    .secret-card-badge {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 24px;
+      height: 24px;
+      background: rgba(212, 102, 124, 0.9);
+      color: #ffffff;
+      font-size: 12px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(212, 102, 124, 0.4);
+      animation: pulseSecret 2.2s infinite ease-in-out;
+      z-index: 5;
+    }
+
+    @keyframes pulseSecret {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212, 102, 124, 0.5); }
+      50% { transform: scale(1.12); box-shadow: 0 0 0 6px rgba(212, 102, 124, 0); }
+    }
+
+    .lightbox-secret-box {
+      margin-top: 14px;
+      padding: 13px 16px;
+      background: linear-gradient(135deg, rgba(255, 235, 240, 0.95), rgba(254, 245, 247, 0.95));
+      border: 1px dashed #d4667c;
+      border-radius: 13px;
+      box-shadow: 0 4px 14px rgba(212, 102, 124, 0.1);
+      animation: fadeInSecret 0.35s ease forwards;
+    }
+
+    @keyframes fadeInSecret {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .secret-box-tag {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #b5435c;
+      margin-bottom: 5px;
+    }
+
+    .secret-box-text {
+      margin: 0;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      color: #44222a;
+      font-style: italic;
+    }
+
+    /* Minimal Romantic Ending Screen */
+    .finale-ending-screen {
+      position: relative;
+      margin: 44px auto 16px;
+      padding: 40px 24px;
+      max-width: 600px;
+      background: linear-gradient(150deg, rgba(38, 20, 26, 0.88), rgba(28, 14, 19, 0.94));
+      border: 1px solid rgba(230, 160, 175, 0.25);
+      border-radius: 26px;
+      box-shadow: 0 18px 45px rgba(15, 6, 9, 0.35);
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .ending-bg-blur {
+      position: absolute;
+      inset: 0;
+      background: url('foto/carousel/c18.jpg') center/cover no-repeat;
+      filter: blur(28px) brightness(0.24);
+      transform: scale(1.15);
+      z-index: 1;
+    }
+
+    .ending-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .ending-date {
+      display: inline-block;
+      font-size: 0.82rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255, 210, 220, 0.85);
+      padding: 5px 14px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 99px;
+      margin-bottom: 18px;
+    }
+
+    .ending-quote {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.12rem, 3.8vw, 1.4rem);
+      line-height: 1.65;
+      color: #fff4f6;
+      font-style: italic;
+      margin: 0 0 22px;
+      padding: 0 6px;
+    }
+
+    .ending-signature {
+      font-size: 0.94rem;
+      color: rgba(255, 220, 228, 0.9);
+      font-weight: 500;
+      margin-bottom: 26px;
+      letter-spacing: 0.02em;
+    }
+
+    .replay-btn {
+      margin: 0 auto;
+      background: linear-gradient(135deg, #d4667c, #b34a62);
+      box-shadow: 0 8px 24px rgba(212, 102, 124, 0.35);
+    }
+
+    /* Replay Toast */
+    .replay-toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      padding: 13px 24px;
+      background: rgba(28, 14, 19, 0.92);
+      color: #fff5f7;
+      font-size: 0.93rem;
+      font-weight: 500;
+      border: 1px solid rgba(230, 160, 175, 0.4);
+      border-radius: 99px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    }
+
+    .replay-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
     @media (prefers-reduced-motion: reduce) {
 
       *,
@@ -1555,20 +1777,51 @@
     <!-- 3. Ending -->
     <section class="finale hidden" id="finale">
       <div class="finale-inner">
-        <span class="mini-label">untuk setiap hal yang pernah kita lewati</span>
-        <h2>Untuk Kita dan Semua yang Pernah Ada. ❤️</h2>
+        <span class="mini-label">untuk setiap hal yang sudah kita lewati</span>
+        <h2>Tentang Kita, dan Hal-Hal yang Masih Tersimpan. ❤️</h2>
 
         <div class="finale-message" id="finalMessage">
-          <p>Akhir-akhir ini aku baru sadar kalau ternyata ada beberapa hal yang nggak semudah itu buat dianggap biasa.</p>
-          <p>Kadang pas lagi sibuk semuanya terasa baik-baik aja, tapi begitu keadaan mulai sepi, entah kenapa pikiran suka balik ke banyak hal yang pernah dilewati. Dari Malang, Surabaya, sampai akhirnya kembali ke Malang lagi. Lucu ya, ternyata perjalanan-perjalanan sederhana begitu bisa ninggalin banyak hal di kepala.</p>
-          <p>Mungkin selama ini aku juga terlalu sibuk melihat semuanya dari sisi aku sendiri. Terlalu banyak mempertahankan apa yang aku rasa benar, sampai lupa kalau setiap orang punya cara sendiri untuk merasa, berpikir, dan menghadapi sesuatu.</p>
-          <p>Sekarang aku cuma lagi belajar untuk lebih tenang. Nggak buru-buru mengambil kesimpulan, nggak selalu memaksakan apa yang aku inginkan, dan mencoba memahami sesuatu dari sisi yang berbeda.</p>
-          <p>Bukan berarti semuanya tiba-tiba terasa ringan. Ada beberapa malam yang masih terasa panjang, ada momen-momen tertentu yang tanpa sengaja membawa pikiran ke tempat yang sama. Kadang ada banyak hal yang rasanya ingin diceritakan, tapi mungkin untuk sekarang lebih baik disimpan dulu.</p>
-          <p>Aku juga mulai ngerti kalau beberapa hal mungkin memang nggak bisa diperbaiki cuma lewat kata-kata. Ada yang butuh waktu, ada yang butuh jarak, dan ada juga yang mungkin baru bisa terlihat lewat sikap.</p>
-          <p>Aku nggak tahu nanti semuanya akan membawa kita ke mana. Aku juga nggak mau memaksakan sesuatu yang mungkin sekarang belum waktunya.</p>
-          <p>Cuma kalau suatu hari masih ada ruang untuk ngobrol tanpa membawa semua luka yang lama, mungkin aku masih ingin duduk dan mendengarkan. Nggak untuk mengulang semuanya seperti dulu, tapi mungkin untuk memahami hal-hal yang dulu belum sempat kita pahami.</p>
-          <p>Untuk sekarang, aku cuma sedang belajar menerima bahwa ternyata ada beberapa orang dan beberapa cerita yang nggak bisa begitu saja menjadi biasa, meskipun kita sudah berusaha terlihat baik-baik saja.</p>
-          <p class="highlight-final">Dan mungkin, kamu adalah salah satunya.</p>
+          <p>Akhir-akhir ini aku banyak mengingat kembali hal-hal kecil yang pernah kita lewati bareng.</p>
+          <p>Dari Malang, Surabaya, sampai akhirnya kembali ke Malang lagi. Lucu ya, ternyata perjalanan-perjalanan sederhana itu ninggalin banyak cerita yang selalu hangat kalau diingat.</p>
+          <p>Mungkin selama ini aku juga terlalu sibuk melihat semuanya dari sudut pandangku sendiri. Sekarang aku lagi banyak belajar untuk lebih tenang, lebih banyak mendengarkan, dan memahami sesuatu dari cara pandang yang berbeda.</p>
+          <p>Aku juga mulai ngerti kalau beberapa hal memang butuh waktu dan proses untuk saling memahami.</p>
+          <p>Aku nggak tahu nanti waktu akan membawa kita ke mana, dan aku nggak mau memaksakan apa pun. Cuma kalau suatu hari ada ruang untuk ngobrol santai lagi, aku selalu bersyukur untuk setiap kebaikan dan cerita yang pernah ada.</p>
+          <p class="highlight-final">Mungkin nggak semua hal harus punya jawaban sekarang. Ada yang cukup dijalani pelan-pelan, ada yang cukup disimpan baik-baik. Dan entah kenapa, dari sekian banyak hal yang berubah, cerita ini masih punya tempatnya sendiri. ❤️</p>
+        </div>
+
+        <!-- Section: Hal-hal kecil yang masih sering aku ingat -->
+        <div class="little-memories-section">
+          <div class="little-memories-header">
+            <span class="mini-label">✦ Catatan Kecil</span>
+            <h3 class="little-memories-title">Hal-hal kecil yang masih sering aku ingat.</h3>
+            <p class="little-memories-subtitle">Bukan hal besar, cuma potongan sederhana yang rasanya nggak pernah hilang.</p>
+          </div>
+          <div class="little-memories-grid">
+            <div class="little-memory-card">
+              <span class="lm-icon">🚗</span>
+              <p>Perjalanan jauh yang ternyata nggak terasa sejauh itu kalau tujuannya ke kamu.</p>
+            </div>
+            <div class="little-memory-card">
+              <span class="lm-icon">💬</span>
+              <p>Obrolan-obrolan random di jalanan Surabaya yang selalu sukses bikin lupa waktu.</p>
+            </div>
+            <div class="little-memory-card">
+              <span class="lm-icon">📸</span>
+              <p>Foto yang awalnya kelihatan biasa aja, tapi sekarang malah jadi yang paling sering dilihat.</p>
+            </div>
+            <div class="little-memory-card">
+              <span class="lm-icon">☕</span>
+              <p>Tawa lepas tanpa perlu jaim sedikit pun pas kita lagi duduk santai berdua.</p>
+            </div>
+            <div class="little-memory-card">
+              <span class="lm-icon">🤍</span>
+              <p>Rasa tenang setiap kali kamu nyandarin kepala di bahuku di tengah capeknya hari.</p>
+            </div>
+            <div class="little-memory-card">
+              <span class="lm-icon">🎂</span>
+              <p>Piring kue kecil hari itu... saksi sederhana kalau kita pernah sebahagia itu merayakannya.</p>
+            </div>
+          </div>
         </div>
 
         <!-- Komedi Putar (3D Carousel) -->
@@ -1635,6 +1888,10 @@
                 <span class="lightbox-badge" id="lightboxBadge">Malang · Hari Pertama</span>
                 <h4 class="lightbox-title" id="lightboxTitle">Awal Cerita Kita di Malang</h4>
                 <p class="lightbox-note" id="lightboxNote">Masih inget banget rasa deg-degannya waktu pertama kali nyamperin kamu ke Malang. Tapi pas lihat senyummu langsung, rasa gugupnya langsung lumer.</p>
+                <div class="lightbox-secret-box hidden" id="lightboxSecretBox">
+                  <div class="secret-box-tag">✨ Secret Memory</div>
+                  <p class="secret-box-text">Kalau kamu sampai nemu ini, berarti kamu benar-benar lihat semuanya :) Terima kasih ya, hal sekecil apa pun dari cerita kita, selalu punya arti yang berharga buat aku.</p>
+                </div>
                 <div class="lightbox-nav-row">
                   <button class="lightbox-nav-btn" id="lightboxPrevBtn">‹ Sebelumnya</button>
                   <span class="lightbox-counter" id="lightboxCounter">01 / 25</span>
@@ -1645,10 +1902,25 @@
           </div>
         </div>
 
-        <button class="primary-btn" id="replayBtn">Lihat Lagi ↻</button>
-        <div class="signature" id="signature">— dari Kakak (Uli), untuk Bububku ♡</div>
+        <!-- Elegant Minimal Ending Card -->
+        <div class="finale-ending-screen" id="finaleEndingScreen">
+          <div class="ending-bg-blur"></div>
+          <div class="ending-content">
+            <div class="ending-date">06.10.2026</div>
+            <blockquote class="ending-quote">
+              “Nggak semua perjalanan selalu mudah. Tapi tetap ada bagian yang rasanya sayang kalau dilupakan.”
+            </blockquote>
+            <div class="ending-signature" id="signature">— dari Kakak, untuk Bubub ♡</div>
+            <button class="primary-btn replay-btn" id="replayBtn" type="button">Lihat Lagi ↻</button>
+          </div>
+        </div>
       </div>
     </section>
+
+    <!-- Replay Toast Notification -->
+    <div class="replay-toast hidden" id="replayToast" role="status" aria-live="polite">
+      <span>✨ Oh iya… terima kasih sudah sampai sejauh ini.</span>
+    </div>
 
     <!-- Audio element for background music -->
     <audio id="bgAudio" loop playsinline preload="auto"></audio>
@@ -2082,12 +2354,26 @@
       setPlaybackVisuals(false, "Selesai");
     });
 
-    // Start playback (called when user clicks "Buka Cerita Kita" or Play button)
-    function startMusic() {
+    // Start playback with smooth cinematic fade-in (called when user clicks "Buka Cerita Kita" or Play button)
+    function startMusic(fadeDuration = 2500) {
       if (localFileLoaded) {
         stopSynthMelody();
+        const targetVol = parseFloat(volSlider ? volSlider.value : 0.85);
+        bgAudio.volume = 0;
         bgAudio.play().then(() => {
           setPlaybackVisuals(true);
+          // Cinematic volume fade-in over 2.5s
+          let currentVol = 0;
+          const stepTime = 50;
+          const stepCount = fadeDuration / stepTime;
+          const volumeStep = targetVol / stepCount;
+          const fadeInterval = setInterval(() => {
+            currentVol = Math.min(targetVol, currentVol + volumeStep);
+            bgAudio.volume = currentVol;
+            if (currentVol >= targetVol) {
+              clearInterval(fadeInterval);
+            }
+          }, stepTime);
         }).catch(err => {
           console.warn("Audio autoplay blocked by browser policy:", err);
           if (vinylFloatBtn) vinylFloatBtn.classList.add("pulse-prompt");
@@ -2220,19 +2506,15 @@
     document.getElementById("partnerNameIntro").textContent = CONFIG.partnerName;
     document.getElementById("anniversaryDate").textContent = CONFIG.anniversaryDate;
     document.getElementById("signature").textContent =
-      `— dari Kakak (Uli), untuk Bububku ♡`;
+      `— dari Kakak, untuk Bubub ♡`;
 
     document.getElementById("finalMessage").innerHTML = `
-      <p>Akhir-akhir ini aku baru sadar kalau ternyata ada beberapa hal yang nggak semudah itu buat dianggap biasa.</p>
-      <p>Kadang pas lagi sibuk semuanya terasa baik-baik aja, tapi begitu keadaan mulai sepi, entah kenapa pikiran suka balik ke banyak hal yang pernah dilewati. Dari Malang, Surabaya, sampai akhirnya kembali ke Malang lagi. Lucu ya, ternyata perjalanan-perjalanan sederhana begitu bisa ninggalin banyak hal di kepala.</p>
-      <p>Mungkin selama ini aku juga terlalu sibuk melihat semuanya dari sisi aku sendiri. Terlalu banyak mempertahankan apa yang aku rasa benar, sampai lupa kalau setiap orang punya cara sendiri untuk merasa, berpikir, dan menghadapi sesuatu.</p>
-      <p>Sekarang aku cuma lagi belajar untuk lebih tenang. Nggak buru-buru mengambil kesimpulan, nggak selalu memaksakan apa yang aku inginkan, dan mencoba memahami sesuatu dari sisi yang berbeda.</p>
-      <p>Bukan berarti semuanya tiba-tiba terasa ringan. Ada beberapa malam yang masih terasa panjang, ada momen-momen tertentu yang tanpa sengaja membawa pikiran ke tempat yang sama. Kadang ada banyak hal yang rasanya ingin diceritakan, tapi mungkin untuk sekarang lebih baik disimpan dulu.</p>
-      <p>Aku juga mulai ngerti kalau beberapa hal mungkin memang nggak bisa diperbaiki cuma lewat kata-kata. Ada yang butuh waktu, ada yang butuh jarak, dan ada juga yang mungkin baru bisa terlihat lewat sikap.</p>
-      <p>Aku nggak tahu nanti semuanya akan membawa kita ke mana. Aku juga nggak mau memaksakan sesuatu yang mungkin sekarang belum waktunya.</p>
-      <p>Cuma kalau suatu hari masih ada ruang untuk ngobrol tanpa membawa semua luka yang lama, mungkin aku masih ingin duduk dan mendengarkan. Nggak untuk mengulang semuanya seperti dulu, tapi mungkin untuk memahami hal-hal yang dulu belum sempat kita pahami.</p>
-      <p>Untuk sekarang, aku cuma sedang belajar menerima bahwa ternyata ada beberapa orang dan beberapa cerita yang nggak bisa begitu saja menjadi biasa, meskipun kita sudah berusaha terlihat baik-baik saja.</p>
-      <p class="highlight-final">Dan mungkin, kamu adalah salah satunya.</p>
+      <p>Akhir-akhir ini aku banyak mengingat kembali hal-hal kecil yang pernah kita lewati bareng.</p>
+      <p>Dari Malang, Surabaya, sampai akhirnya kembali ke Malang lagi. Lucu ya, ternyata perjalanan-perjalanan sederhana itu ninggalin banyak cerita yang selalu hangat kalau diingat.</p>
+      <p>Mungkin selama ini aku juga terlalu sibuk melihat semuanya dari sudut pandangku sendiri. Sekarang aku lagi banyak belajar untuk lebih tenang, lebih banyak mendengarkan, dan memahami sesuatu dari cara pandang yang berbeda.</p>
+      <p>Aku juga mulai ngerti kalau beberapa hal memang butuh waktu dan proses untuk saling memahami.</p>
+      <p>Aku nggak tahu nanti waktu akan membawa kita ke mana, dan aku nggak mau memaksakan apa pun. Cuma kalau suatu hari ada ruang untuk ngobrol santai lagi, aku selalu bersyukur untuk setiap kebaikan dan cerita yang pernah ada.</p>
+      <p class="highlight-final">Mungkin nggak semua hal harus punya jawaban sekarang. Ada yang cukup dijalani pelan-pelan, ada yang cukup disimpan baik-baik. Dan entah kenapa, dari sekian banyak hal yang berubah, cerita ini masih punya tempatnya sendiri. ❤️</p>
     `;
 
     // If a photo is missing, show an elegant placeholder instead of broken image icon
@@ -2306,9 +2588,22 @@
     prevBtn.addEventListener("click", prevScene);
 
     replayBtn.addEventListener("click", () => {
-      currentScene = 0;
-      showSection(story);
-      renderScene(currentScene);
+      const toast = document.getElementById("replayToast");
+      if (toast) {
+        toast.classList.remove("hidden");
+        void toast.offsetWidth;
+        toast.classList.add("show");
+        setTimeout(() => {
+          toast.classList.remove("show");
+          setTimeout(() => toast.classList.add("hidden"), 500);
+        }, 3200);
+      }
+
+      setTimeout(() => {
+        currentScene = 0;
+        showSection(story);
+        renderScene(currentScene);
+      }, 700);
     });
 
     document.addEventListener("keydown", event => {
@@ -2361,7 +2656,7 @@
       { id: 17, src: "foto/carousel/c17.jpg", title: "Ketawa Sampai Tutup Mulut", loc: "Anniversary Cafe", chapter: "365 Hari Kita", note: "Momen waktu kamu ketawa ngakak gara-gara obrolan konyol kita sampai harus nutup mulut saking malunya." },
       { id: 18, src: "foto/carousel/c18.jpg", title: "365 Hari Melangkah Bersama", loc: "Anniversary Cafe", chapter: "365 Hari Kita", note: "Satu tahun yang penuh warna, tawa, dan cerita. Bersyukur banget pernah berjuang dan melangkah sejauh ini bareng kamu." },
       { id: 19, src: "foto/carousel/c19.jpg", title: "Tempat Paling Nyaman di Dunia", loc: "Anniversary Cafe", chapter: "365 Hari Kita", note: "Cukup nempel dan deket kayak gini, semua rasa lelah rasanya langsung hilang diganti rasa tenang." },
-      { id: 20, src: "foto/carousel/c20.jpg", title: "Piring Kecil Penuh Makna ♡", loc: "Anniversary Cafe", chapter: "365 Hari Kita", note: "Piring kue kecil dengan tulisan itu jadi saksi betapa bahagianya kita hari itu merayakan cerita yang kita jaga." },
+      { id: 20, src: "foto/carousel/c20.jpg", title: "Piring Kecil Penuh Makna ♡", loc: "Anniversary Cafe", chapter: "365 Hari Kita", isSecret: true, note: "Piring kue kecil dengan tulisan itu jadi saksi betapa bahagianya kita hari itu merayakan cerita yang kita jaga." },
       { id: 21, src: "foto/carousel/c21.jpg", title: "Gemasnya Nggak Pernah Habis", loc: "Anniversary Cafe", chapter: "365 Hari Kita", note: "Dari sekian banyak foto, pose manyun lucumu ini yang selalu berhasil bikin aku gemas setengah mati." },
       { id: 22, src: "foto/carousel/c22.jpg", title: "Selalu Bikin Hari Jadi Ceria", loc: "Anniversary Cafe", chapter: "365 Hari Kita", note: "Ada aja ekspresi lucu yang kamu keluarin. Nggak pernah ada kata bosen kalau udah ngehabisin waktu sama kamu." },
       { id: 23, src: "foto/carousel/c23.jpg", title: "Nggak Pernah Kehabisan Gaya", loc: "Anniversary Cafe", chapter: "365 Hari Kita", note: "Bercanda dan bergaya bebas sesuka hati, yang penting tawa kita berdua tetap ada di setiap jepretan." },
@@ -2415,6 +2710,7 @@
         card.style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
 
         card.innerHTML = `
+          ${item.isSecret ? '<span class="secret-card-badge" title="Pesan Rahasia">♡</span>' : ''}
           <div class="carousel-card-img-wrap">
             <img src="${item.src}" alt="${item.title}" loading="lazy" onerror="if(!this.dataset.opt){this.dataset.opt='1';this.src='foto/carousel_opt/c${String(index+1).padStart(2,'0')}.jpg';}">
           </div>
@@ -2442,6 +2738,7 @@
         gridCard.className = "grid-photo-card";
         gridCard.style.setProperty("--r", `${randomRot}deg`);
         gridCard.innerHTML = `
+          ${item.isSecret ? '<span class="secret-card-badge" title="Pesan Rahasia">♡</span>' : ''}
           <div class="grid-card-img-wrap">
             <img src="${item.src}" alt="${item.title}" loading="lazy" onerror="if(!this.dataset.opt){this.dataset.opt='1';this.src='foto/carousel_opt/c${String(index+1).padStart(2,'0')}.jpg';}">
           </div>
@@ -2635,6 +2932,14 @@
       lightboxTitle.textContent = item.title;
       lightboxNote.textContent = item.note;
       lightboxCounter.textContent = `${String(index + 1).padStart(2, "0")} / ${String(totalPhotos).padStart(2, "0")}`;
+      const secretBox = document.getElementById("lightboxSecretBox");
+      if (secretBox) {
+        if (item.isSecret) {
+          secretBox.classList.remove("hidden");
+        } else {
+          secretBox.classList.add("hidden");
+        }
+      }
       romanticLightbox.classList.remove("hidden");
       document.body.style.overflow = "hidden";
     }
