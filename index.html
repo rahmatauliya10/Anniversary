@@ -470,36 +470,534 @@
       text-align: center;
     }
 
-    .gallery {
-      margin: 36px auto 34px;
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 12px;
+    /* ==================================
+       KOMEDI PUTAR (3D CAROUSEL) SECTION
+       ================================== */
+    .carousel-section {
+      width: min(100%, 1100px);
+      margin: 40px auto 28px;
+      position: relative;
+    }
+
+    .carousel-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .carousel-title {
+      margin: 10px 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.03em;
+    }
+
+    .carousel-desc {
+      width: min(100%, 580px);
+      margin: 0 auto 18px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .carousel-controls-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       align-items: center;
+      gap: 10px;
+      margin-top: 14px;
     }
 
-    .gallery-card {
+    .carousel-mode-btn,
+    .carousel-ctrl-btn {
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      border: 1px solid rgba(200, 95, 120, 0.25);
+      background: rgba(255, 255, 255, 0.85);
+      color: var(--ink);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 14px rgba(78, 46, 55, 0.06);
+    }
+
+    .carousel-mode-btn:hover,
+    .carousel-ctrl-btn:hover {
+      background: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(200, 95, 120, 0.16);
+      border-color: var(--accent);
+    }
+
+    .carousel-mode-btn.active {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+      box-shadow: 0 8px 22px rgba(200, 95, 120, 0.32);
+    }
+
+    /* 3D Stage Container */
+    .carousel-3d-stage {
+      position: relative;
+      width: 100%;
+      height: 480px;
+      margin: 10px auto 20px;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: pan-y;
       overflow: hidden;
-      border: 7px solid white;
-      border-bottom-width: 22px;
-      border-radius: 4px;
-      box-shadow: 0 12px 26px rgba(78, 46, 55, .13);
-      background: white;
-      transform: rotate(var(--r));
-      transition: transform .25s ease;
+      border-radius: 28px;
+      background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.88) 0%, rgba(249, 231, 235, 0.5) 70%, transparent 100%);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      box-shadow: inset 0 0 60px rgba(200, 95, 120, 0.06), 0 20px 50px rgba(78, 46, 55, 0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 12px 14px;
     }
 
-    .gallery-card:hover {
-      transform: rotate(0deg) translateY(-5px) scale(1.04);
+    .carousel-perspective-box {
+      width: 100%;
+      height: 380px;
+      position: relative;
+      perspective: 1300px;
+      perspective-origin: 50% 46%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: grab;
+    }
+
+    .carousel-perspective-box:active {
+      cursor: grabbing;
+    }
+
+    .carousel-cylinder {
+      width: 0px;
+      height: 0px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    /* Individual Carousel Card (Polaroid Style) */
+    .carousel-card {
+      position: absolute;
+      top: -125px;
+      left: -90px;
+      width: 180px;
+      height: 250px;
+      padding: 9px 9px 18px;
+      background: #ffffff;
+      border-radius: 6px;
+      box-shadow: 0 12px 30px rgba(58, 43, 47, 0.16), 0 2px 8px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      transform-style: preserve-3d;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: filter 0.3s, opacity 0.3s;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+
+    .carousel-card::before {
+      content: "♡";
+      position: absolute;
+      top: -7px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 18px;
+      height: 18px;
+      background: #fff0f3;
+      border: 1px solid rgba(200, 95, 120, 0.3);
+      border-radius: 50%;
+      font-size: 0.65rem;
+      color: var(--accent);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      z-index: 3;
+    }
+
+    .carousel-card-img-wrap {
+      width: 100%;
+      height: 185px;
+      overflow: hidden;
+      border-radius: 3px;
+      background: #f5ebeb;
+    }
+
+    .carousel-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+      pointer-events: none;
+    }
+
+    .carousel-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .carousel-card-caption {
+      margin-top: 8px;
+      font-family: "Segoe Print", "Comic Sans MS", cursive;
+      font-size: 0.72rem;
+      color: var(--accent-dark);
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-weight: 700;
+      padding: 0 4px;
+    }
+
+    /* Carousel Nav Arrows */
+    .carousel-nav-btn {
+      position: absolute;
+      top: 48%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.88);
+      color: var(--accent-dark);
+      font-size: 1.8rem;
+      line-height: 1;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(58, 43, 47, 0.12);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: all 0.25s ease;
+      z-index: 10;
+    }
+
+    .carousel-nav-btn:hover {
+      background: var(--accent);
+      color: #ffffff;
+      transform: translateY(-50%) scale(1.08);
+      box-shadow: 0 12px 28px rgba(200, 95, 120, 0.35);
+    }
+
+    .carousel-nav-btn.prev {
+      left: 16px;
+    }
+
+    .carousel-nav-btn.next {
+      right: 16px;
+    }
+
+    /* Bottom Indicator */
+    .carousel-indicator-bar {
+      text-align: center;
+      z-index: 5;
+    }
+
+    .indicator-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(200, 95, 120, 0.2);
+      box-shadow: 0 6px 18px rgba(78, 46, 55, 0.08);
+      font-size: 0.8rem;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .indicator-num {
+      color: var(--accent);
+    }
+
+    .indicator-title {
+      font-family: "Segoe Print", "Comic Sans MS", cursive;
+      color: var(--accent-dark);
+    }
+
+    .carousel-hint {
+      margin-top: 6px;
+      font-size: 0.74rem;
+      color: var(--muted);
+      opacity: 0.85;
+    }
+
+    /* Grid Stage (View Mode 2) */
+    .carousel-grid-stage {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+      padding: 10px;
+    }
+
+    .grid-photo-card {
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 8px 8px 14px;
+      box-shadow: 0 8px 22px rgba(58, 43, 47, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      cursor: pointer;
+      transform: rotate(var(--r, 0deg));
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      text-align: center;
+    }
+
+    .grid-photo-card:hover {
+      transform: translateY(-6px) scale(1.03) rotate(0deg);
+      box-shadow: 0 16px 36px rgba(200, 95, 120, 0.22);
       z-index: 2;
     }
 
-    .gallery-card img {
+    .grid-card-img-wrap {
       width: 100%;
       aspect-ratio: 4/5;
+      overflow: hidden;
+      border-radius: 4px;
+      background: #f7ebeb;
+    }
+
+    .grid-card-img-wrap img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       display: block;
     }
+
+    .grid-card-caption {
+      margin-top: 10px;
+      font-family: "Segoe Print", "Comic Sans MS", cursive;
+      font-size: 0.76rem;
+      color: var(--accent-dark);
+      font-weight: 700;
+    }
+
+    .grid-card-loc {
+      font-size: 0.68rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* Romantic Lightbox Modal */
+    .romantic-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+    }
+
+    .lightbox-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(30, 18, 22, 0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .lightbox-dialog {
+      position: relative;
+      z-index: 2;
+      width: min(92vw, 680px);
+      max-height: 92vh;
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 26px;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      animation: scaleIn 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 0;
+      background: rgba(0, 0, 0, 0.08);
+      color: var(--ink);
+      font-size: 1.4rem;
+      line-height: 1;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      z-index: 10;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .lightbox-close:hover {
+      background: var(--accent);
+      color: #ffffff;
+      transform: rotate(90deg);
+    }
+
+    .lightbox-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px;
+      overflow-y: auto;
+    }
+
+    .lightbox-img-wrap {
+      width: 100%;
+      max-height: 58vh;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #f7ebeb;
+      box-shadow: 0 10px 30px rgba(58, 43, 47, 0.12);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox-img-wrap img {
+      max-width: 100%;
+      max-height: 58vh;
+      object-fit: contain;
+      display: block;
+    }
+
+    .lightbox-meta {
+      width: 100%;
+      text-align: center;
+      margin-top: 16px;
+    }
+
+    .lightbox-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(200, 95, 120, 0.12);
+      color: var(--accent-dark);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .lightbox-title {
+      margin: 8px 0 4px;
+      font-family: Georgia, serif;
+      font-size: 1.35rem;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .lightbox-note {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin: 0 auto 16px;
+      max-width: 480px;
+      line-height: 1.5;
+    }
+
+    .lightbox-nav-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin-top: 6px;
+    }
+
+    .lightbox-nav-btn {
+      padding: 8px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(200, 95, 120, 0.3);
+      background: #ffffff;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .lightbox-nav-btn:hover {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+    }
+
+    .lightbox-counter {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--accent-dark);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.94); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* Mobile Adaptations */
+    @media (max-width: 680px) {
+      .carousel-3d-stage {
+        height: 420px;
+        border-radius: 20px;
+      }
+      .carousel-perspective-box {
+        height: 320px;
+        perspective: 900px;
+      }
+      .carousel-card {
+        width: 140px;
+        height: 195px;
+        top: -98px;
+        left: -70px;
+        padding: 7px 7px 12px;
+      }
+      .carousel-card-img-wrap {
+        height: 140px;
+      }
+      .carousel-card-caption {
+        font-size: 0.65rem;
+      }
+      .carousel-nav-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1.4rem;
+      }
+      .carousel-nav-btn.prev {
+        left: 8px;
+      }
+      .carousel-nav-btn.next {
+        right: 8px;
+      }
+      .carousel-grid-stage {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+    }
+
 
     .signature {
       margin-top: 22px;
@@ -1225,13 +1723,78 @@
           <p class="highlight-final">Dan mungkin, kamu adalah salah satunya.</p>
         </div>
 
-        <div class="gallery" id="gallery">
-          <div class="gallery-card" style="--r:-5deg"><img src="foto/g1.jpg" alt="Pertemuan Pertama Malang"></div>
-          <div class="gallery-card" style="--r:3deg"><img src="foto/g2.jpg" alt="Perjalanan Manis Surabaya"></div>
-          <div class="gallery-card" style="--r:-2deg"><img src="foto/g3.jpg" alt="Tawa Bahagia Photobooth"></div>
-          <div class="gallery-card" style="--r:5deg"><img src="foto/g4.jpg" alt="Pose Manis Photobooth"></div>
-          <div class="gallery-card" style="--r:-4deg"><img src="foto/g5.jpg" alt="Canda & Tawa Lepas Kita"></div>
-          <div class="gallery-card" style="--r:2deg"><img src="foto/g6.jpg" alt="365 Hari Bersama Sofia"></div>
+        <!-- Komedi Putar (3D Carousel) -->
+        <div class="carousel-section" id="carouselSection">
+          <div class="carousel-header">
+            <span class="mini-label">🎡 Komedi Putar Kenangan Kita</span>
+            <h3 class="carousel-title">25 Momen Indah Bersama Bubub ♡</h3>
+            <p class="carousel-desc">
+              Setiap foto menyimpan cerita kita — dari langkah pertama di Malang, hangatnya Surabaya, tawa lepas photobooth, hingga perayaan 365 hari kita bersama.
+            </p>
+
+            <div class="carousel-controls-bar">
+              <button class="carousel-mode-btn active" id="btnMode3D" type="button">
+                <span>🎡</span> Mode Komedi Putar (3D)
+              </button>
+              <button class="carousel-mode-btn" id="btnModeGrid" type="button">
+                <span>📑</span> Mode Grid Semua Foto (25)
+              </button>
+              <button class="carousel-ctrl-btn" id="btnToggleSpin" type="button" title="Jeda / Putar Otomatis">
+                <span id="spinIcon">⏸</span> <span id="spinText">Jeda Putaran</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 3D Stage -->
+          <div class="carousel-3d-stage" id="carousel3dStage">
+            <div class="carousel-perspective-box" id="carouselPerspectiveBox">
+              <div class="carousel-cylinder" id="carouselCylinder">
+                <!-- Dynamically filled with 25 3D cards -->
+              </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <button class="carousel-nav-btn prev" id="carouselPrevBtn" aria-label="Putar ke kiri" title="Foto Sebelumnya">‹</button>
+            <button class="carousel-nav-btn next" id="carouselNextBtn" aria-label="Putar ke kanan" title="Foto Berikutnya">›</button>
+
+            <!-- Active Indicator & Hint -->
+            <div class="carousel-indicator-bar">
+              <div class="indicator-chip" id="activePhotoIndicator">
+                <span class="indicator-num">01 / 25</span>
+                <span class="indicator-sep">·</span>
+                <span class="indicator-title">Awal Mula di Malang ♡</span>
+              </div>
+              <div class="carousel-hint">✨ Geser / drag untuk memutar bebas, klik foto untuk memperbesar</div>
+            </div>
+          </div>
+
+          <!-- Grid Stage (View Mode 2) -->
+          <div class="carousel-grid-stage hidden" id="carouselGridStage">
+            <!-- Dynamically filled with 25 grid cards -->
+          </div>
+        </div>
+
+        <!-- Romantic Lightbox Modal -->
+        <div class="romantic-lightbox hidden" id="romanticLightbox" role="dialog" aria-modal="true" aria-label="Detail Foto">
+          <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+          <div class="lightbox-dialog">
+            <button class="lightbox-close" id="lightboxClose" aria-label="Tutup foto">&times;</button>
+            <div class="lightbox-body">
+              <div class="lightbox-img-wrap">
+                <img id="lightboxImg" src="" alt="Kenangan Romantis" />
+              </div>
+              <div class="lightbox-meta">
+                <span class="lightbox-badge" id="lightboxBadge">Malang · Awal Cerita</span>
+                <h4 class="lightbox-title" id="lightboxTitle">Awal Mula di Malang ♡</h4>
+                <p class="lightbox-note" id="lightboxNote">Setiap tatapan dan senyuman di sini selalu tersimpan rapi di hatiku.</p>
+                <div class="lightbox-nav-row">
+                  <button class="lightbox-nav-btn" id="lightboxPrevBtn">‹ Sebelumnya</button>
+                  <span class="lightbox-counter" id="lightboxCounter">01 / 25</span>
+                  <button class="lightbox-nav-btn" id="lightboxNextBtn">Selanjutnya ›</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <button class="primary-btn" id="replayBtn">Lihat Lagi ↻</button>
@@ -2032,6 +2595,331 @@
       if (delta < 0) nextScene();
       if (delta > 0) prevScene();
     }, { passive: true });
+
+    // ==========================================
+    // KOMEDI PUTAR (3D CAROUSEL) & LIGHTBOX LOGIC
+    // ==========================================
+    const carouselPhotos = [
+      // Malang (Awal Cerita)
+      { id: 1, src: "foto/carousel/c01.jpg", title: "Awal Mula di Malang ♡", loc: "Malang", chapter: "Awal Cerita", note: "Hari pertama melangkah menemuimu, awal dari kisah terindah kita." },
+      { id: 2, src: "foto/carousel/c02.jpg", title: "Senyuman Manis Berdua", loc: "Malang", chapter: "Awal Cerita", note: "Senyum pertama yang langsung bikin hati ini tenang dan nyaman." },
+      { id: 3, src: "foto/carousel/c03.jpg", title: "Tawa Hangat Pertama", loc: "Malang", chapter: "Awal Cerita", note: "Kecanggungan yang pelan-pelan mencair jadi tawa lepas kita berdua." },
+
+      // Surabaya (Perjalanan Manis)
+      { id: 4, src: "foto/carousel/c04.jpg", title: "Menyusuri Jalan Surabaya", loc: "Surabaya", chapter: "Perjalanan Manis", note: "Giliranmu datang ke kotaku, jalanan Surabaya terasa begitu istimewa." },
+      { id: 5, src: "foto/carousel/c05.jpg", title: "Momen Manis di Mobil", loc: "Surabaya", chapter: "Perjalanan Manis", note: "Bernyanyi dan bercanda di dalam mobil sepanjang perjalanan." },
+      { id: 6, src: "foto/carousel/c06.jpg", title: "Wajah Bahagia Bersamamu", loc: "Surabaya", chapter: "Perjalanan Manis", note: "Ternyata bahagia sesederhana melihat senyummu di sampingku." },
+      { id: 7, src: "foto/carousel/c07.jpg", title: "Rasa Nyaman di Sampingmu", loc: "Surabaya", chapter: "Perjalanan Manis", note: "Pundakku yang selalu siap jadi tempat ternyaman untuk kepalamu." },
+      { id: 8, src: "foto/carousel/c08.jpg", title: "Senyum Usil & Ceria", loc: "Surabaya", chapter: "Perjalanan Manis", note: "Tingkah lucu dan jahilmu yang tak pernah gagal bikin gemas." },
+
+      // Photobooth (Photomatic Hug & Playful)
+      { id: 9, src: "foto/carousel/c09.jpg", title: "Pelukan Hangat Photobooth", loc: "Photobooth", chapter: "Anniversary 1th", note: "Pelukan hangat yang selalu kurindukan di setiap hembusan nafas." },
+      { id: 10, src: "foto/carousel/c10.jpg", title: "Pipi Bersandar di Dada", loc: "Photobooth", chapter: "Anniversary 1th", note: "Detak jantung yang selalu berbisik betapa berharganya dirimu." },
+      { id: 11, src: "foto/carousel/c11.jpg", title: "Peluk Pinggang Penuh Cinta", loc: "Photobooth", chapter: "Anniversary 1th", note: "Momen berharga yang paling ingin kusimpan selamanya di ingatan." },
+      { id: 12, src: "foto/carousel/c12.jpg", title: "Saling Menatap Penuh Rasa", loc: "Photobooth", chapter: "Anniversary 1th", note: "Di balik tatapanmu, aku selalu menemukan rumah untuk pulang." },
+      { id: 13, src: "foto/carousel/c13.jpg", title: "Tertawa Lepas Berdua", loc: "Photobooth", chapter: "Anniversary 1th", note: "Tawa paling jujur dan lepas tanpa beban di dunia." },
+      { id: 14, src: "foto/carousel/c14.jpg", title: "Pose Peace ✌️ Berdua", loc: "Photobooth", chapter: "Anniversary 1th", note: "Dua insan yang saling melengkapi dalam damai dan kasih." },
+
+      // Anniversary Cafe (Merayakan 365 Hari)
+      { id: 15, src: "foto/carousel/c15.jpg", title: "Senyum Cantik Bersamamu", loc: "Anniversary Cafe", chapter: "365 Hari", note: "Kecantikan senyummu yang tak akan pernah pudar oleh waktu." },
+      { id: 16, src: "foto/carousel/c16.jpg", title: "Candaan Melet & Ngakak", loc: "Anniversary Cafe", chapter: "365 Hari", note: "Selalu ada tawa ngakak di setiap obrolan kita." },
+      { id: 17, src: "foto/carousel/c17.jpg", title: "Menutup Mulut Tertawa", loc: "Anniversary Cafe", chapter: "365 Hari", note: "Tawa malu-malu manis yang paling kusukai dari dirimu." },
+      { id: 18, src: "foto/carousel/c18.jpg", title: "Baju Senada di Sofa Hijau", loc: "Anniversary Cafe", chapter: "365 Hari", note: "Duduk berdampingan merayakan perjalanan satu tahun kita." },
+      { id: 19, src: "foto/carousel/c19.jpg", title: "Kepala Saling Menempel", loc: "Anniversary Cafe", chapter: "365 Hari", note: "Kedekatan dua jiwa yang pernah berjuang bersama-sama." },
+      { id: 20, src: "foto/carousel/c20.jpg", title: "Merayakan 365 Hari", loc: "Anniversary Cafe", chapter: "365 Hari", note: "Kue kecil dengan rasa syukur yang begitu besar untukmu." },
+      { id: 21, src: "foto/carousel/c21.jpg", title: "Pose Duck Face Gemas", loc: "Anniversary Cafe", chapter: "365 Hari", note: "Tingkah lucu dan menggemaskanmu yang tiada duanya di dunia." },
+      { id: 22, src: "foto/carousel/c22.jpg", title: "Pose Kedip & Muka Lucu", loc: "Anniversary Cafe", chapter: "365 Hari", note: "Tak pernah bosan melihat berbagai macam ekspresi wajahmu." },
+      { id: 23, src: "foto/carousel/c23.jpg", title: "Pose Peace di Mata", loc: "Anniversary Cafe", chapter: "365 Hari", note: "Tetap ceria dan manis di hari yang sangat spesial ini." },
+      { id: 24, src: "foto/carousel/c24.jpg", title: "Pose Rock 🤘 & Muka Gemas", loc: "Anniversary Cafe", chapter: "365 Hari", note: "Keseruan kita yang tak akan pernah terganti oleh apa pun." },
+      { id: 25, src: "foto/carousel/c25.jpg", title: "Senyum Pamer Gigi Bahagia", loc: "Anniversary Cafe", chapter: "365 Hari", note: "Terima kasih untuk 365 hari yang luar biasa, sayangku ♡" }
+    ];
+
+    const cylinder = document.getElementById("carouselCylinder");
+    const activePhotoIndicator = document.getElementById("activePhotoIndicator");
+    const carouselPerspectiveBox = document.getElementById("carouselPerspectiveBox");
+    const btnToggleSpin = document.getElementById("btnToggleSpin");
+    const spinIcon = document.getElementById("spinIcon");
+    const spinText = document.getElementById("spinText");
+    const btnMode3D = document.getElementById("btnMode3D");
+    const btnModeGrid = document.getElementById("btnModeGrid");
+    const carousel3dStage = document.getElementById("carousel3dStage");
+    const carouselGridStage = document.getElementById("carouselGridStage");
+    const carouselPrevBtn = document.getElementById("carouselPrevBtn");
+    const carouselNextBtn = document.getElementById("carouselNextBtn");
+
+    let currentRotation = 0;
+    let targetRotation = 0;
+    let isAutoSpinning = true;
+    let isDragging = false;
+    let pointerStartX = 0;
+    let pointerStartRot = 0;
+    let pointerLastX = 0;
+    let pointerLastTime = 0;
+    let dragVelocityX = 0;
+    let cardElements = [];
+    const totalPhotos = carouselPhotos.length;
+    const angleStep = 360 / totalPhotos; // 14.4 deg
+
+    function getCylinderRadius() {
+      return window.innerWidth <= 680 ? 520 : 680;
+    }
+
+    function initCarousel() {
+      const radius = getCylinderRadius();
+      cylinder.innerHTML = "";
+      carouselGridStage.innerHTML = "";
+      cardElements = [];
+
+      carouselPhotos.forEach((item, index) => {
+        const angle = index * angleStep;
+
+        // 3D Card
+        const card = document.createElement("div");
+        card.className = "carousel-card";
+        card.dataset.index = index;
+        card.style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
+
+        card.innerHTML = `
+          <div class="carousel-card-img-wrap">
+            <img src="${item.src}" alt="${item.title}" loading="lazy" onerror="if(!this.dataset.opt){this.dataset.opt='1';this.src='foto/carousel_opt/c${String(index+1).padStart(2,'0')}.jpg';}">
+          </div>
+          <div class="carousel-card-caption">${item.title}</div>
+        `;
+
+        card.addEventListener("click", (e) => {
+          if (Math.abs(dragVelocityX) > 0.4) return;
+          const normRot = ((-currentRotation % 360) + 360) % 360;
+          let diff = Math.abs(normRot - angle);
+          if (diff > 180) diff = 360 - diff;
+          if (diff < angleStep * 0.75) {
+            openLightbox(index);
+          } else {
+            rotateToCard(index);
+          }
+        });
+
+        cylinder.appendChild(card);
+        cardElements.push({ element: card, angle: angle });
+
+        // Grid Card
+        const randomRot = ((index % 5) - 2) * 1.5;
+        const gridCard = document.createElement("div");
+        gridCard.className = "grid-photo-card";
+        gridCard.style.setProperty("--r", `${randomRot}deg`);
+        gridCard.innerHTML = `
+          <div class="grid-card-img-wrap">
+            <img src="${item.src}" alt="${item.title}" loading="lazy" onerror="if(!this.dataset.opt){this.dataset.opt='1';this.src='foto/carousel_opt/c${String(index+1).padStart(2,'0')}.jpg';}">
+          </div>
+          <div class="grid-card-caption">${item.title}</div>
+          <div class="grid-card-loc">📍 ${item.loc} · ${item.chapter}</div>
+        `;
+        gridCard.addEventListener("click", () => openLightbox(index));
+        carouselGridStage.appendChild(gridCard);
+      });
+
+      updateCardDepths();
+    }
+
+    function rotateToCard(index) {
+      targetRotation = -index * angleStep;
+      const delta = (targetRotation - currentRotation) % 360;
+      const shortestDelta = ((delta + 540) % 360) - 180;
+      targetRotation = currentRotation + shortestDelta;
+    }
+
+    function updateCardDepths() {
+      const normRot = ((-currentRotation % 360) + 360) % 360;
+      let closestIdx = 0;
+      let minDiff = 999;
+
+      cardElements.forEach((item, idx) => {
+        let diff = Math.abs(normRot - item.angle);
+        if (diff > 180) diff = 360 - diff;
+
+        if (diff < minDiff) {
+          minDiff = diff;
+          closestIdx = idx;
+        }
+
+        const factor = Math.cos((diff * Math.PI) / 180);
+        if (factor > 0) {
+          item.element.style.opacity = Math.max(0.4, 0.4 + 0.6 * factor).toFixed(2);
+          item.element.style.filter = "none";
+          item.element.style.pointerEvents = "auto";
+        } else {
+          item.element.style.opacity = Math.max(0.18, 0.4 + 0.25 * factor).toFixed(2);
+          item.element.style.filter = "blur(1px) brightness(0.85)";
+          item.element.style.pointerEvents = "none";
+        }
+      });
+
+      const activeItem = carouselPhotos[closestIdx];
+      if (activeItem) {
+        activePhotoIndicator.innerHTML = `
+          <span class="indicator-num">${String(closestIdx + 1).padStart(2, "0")} / ${String(totalPhotos).padStart(2, "0")}</span>
+          <span class="indicator-sep">·</span>
+          <span class="indicator-title">${activeItem.title}</span>
+        `;
+      }
+    }
+
+    function animateCarousel() {
+      if (!isDragging) {
+        if (isAutoSpinning) {
+          targetRotation -= 0.12;
+          currentRotation += (targetRotation - currentRotation) * 0.15;
+        } else {
+          if (Math.abs(dragVelocityX) > 0.01) {
+            targetRotation += dragVelocityX * 0.35;
+            dragVelocityX *= 0.92;
+          }
+          currentRotation += (targetRotation - currentRotation) * 0.1;
+        }
+      }
+
+      cylinder.style.transform = `rotateY(${currentRotation}deg)`;
+      updateCardDepths();
+      requestAnimationFrame(animateCarousel);
+    }
+
+    // Pointer Drag Handlers
+    function onPointerStart(clientX) {
+      isDragging = true;
+      pointerStartX = clientX;
+      pointerLastX = clientX;
+      pointerStartRot = currentRotation;
+      pointerLastTime = performance.now();
+      dragVelocityX = 0;
+    }
+
+    function onPointerMove(clientX) {
+      if (!isDragging) return;
+      const now = performance.now();
+      const dt = Math.max(1, now - pointerLastTime);
+      const deltaX = clientX - pointerLastX;
+      dragVelocityX = deltaX / dt * 15;
+      pointerLastX = clientX;
+      pointerLastTime = now;
+
+      const totalDelta = clientX - pointerStartX;
+      currentRotation = pointerStartRot + totalDelta * 0.28;
+      targetRotation = currentRotation;
+    }
+
+    function onPointerEnd() {
+      if (!isDragging) return;
+      isDragging = false;
+    }
+
+    carouselPerspectiveBox.addEventListener("mousedown", (e) => onPointerStart(e.clientX));
+    window.addEventListener("mousemove", (e) => onPointerMove(e.clientX));
+    window.addEventListener("mouseup", onPointerEnd);
+
+    carouselPerspectiveBox.addEventListener("touchstart", (e) => {
+      if (e.touches.length === 1) onPointerStart(e.touches[0].clientX);
+    }, { passive: true });
+    window.addEventListener("touchmove", (e) => {
+      if (isDragging && e.touches.length === 1) onPointerMove(e.touches[0].clientX);
+    }, { passive: true });
+    window.addEventListener("touchend", onPointerEnd);
+
+    // Nav Buttons
+    carouselPrevBtn.addEventListener("click", () => {
+      targetRotation += angleStep;
+    });
+
+    carouselNextBtn.addEventListener("click", () => {
+      targetRotation -= angleStep;
+    });
+
+    // Toggle Spin
+    btnToggleSpin.addEventListener("click", () => {
+      isAutoSpinning = !isAutoSpinning;
+      spinIcon.textContent = isAutoSpinning ? "⏸" : "▶";
+      spinText.textContent = isAutoSpinning ? "Jeda Putaran" : "Putar Otomatis";
+      btnToggleSpin.classList.toggle("active", !isAutoSpinning);
+    });
+
+    // View Mode Toggle
+    btnMode3D.addEventListener("click", () => {
+      btnMode3D.classList.add("active");
+      btnModeGrid.classList.remove("active");
+      carousel3dStage.classList.remove("hidden");
+      carouselGridStage.classList.add("hidden");
+    });
+
+    btnModeGrid.addEventListener("click", () => {
+      btnModeGrid.classList.add("active");
+      btnMode3D.classList.remove("active");
+      carousel3dStage.classList.add("hidden");
+      carouselGridStage.classList.remove("hidden");
+    });
+
+    window.addEventListener("resize", () => {
+      const radius = getCylinderRadius();
+      cardElements.forEach(item => {
+        item.element.style.transform = `rotateY(${item.angle}deg) translateZ(${radius}px)`;
+      });
+      updateCardDepths();
+    });
+
+    // ==========================================
+    // ROMANTIC LIGHTBOX MODAL
+    // ==========================================
+    const romanticLightbox = document.getElementById("romanticLightbox");
+    const lightboxBackdrop = document.getElementById("lightboxBackdrop");
+    const lightboxClose = document.getElementById("lightboxClose");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxBadge = document.getElementById("lightboxBadge");
+    const lightboxTitle = document.getElementById("lightboxTitle");
+    const lightboxNote = document.getElementById("lightboxNote");
+    const lightboxCounter = document.getElementById("lightboxCounter");
+    const lightboxPrevBtn = document.getElementById("lightboxPrevBtn");
+    const lightboxNextBtn = document.getElementById("lightboxNextBtn");
+    let currentLightboxIndex = 0;
+
+    function openLightbox(index) {
+      currentLightboxIndex = index;
+      const item = carouselPhotos[index];
+      lightboxImg.src = item.src;
+      lightboxBadge.textContent = `${item.loc} · ${item.chapter}`;
+      lightboxTitle.textContent = item.title;
+      lightboxNote.textContent = item.note;
+      lightboxCounter.textContent = `${String(index + 1).padStart(2, "0")} / ${String(totalPhotos).padStart(2, "0")}`;
+      romanticLightbox.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+      romanticLightbox.classList.add("hidden");
+      document.body.style.overflow = "";
+    }
+
+    function nextLightbox() {
+      currentLightboxIndex = (currentLightboxIndex + 1) % totalPhotos;
+      openLightbox(currentLightboxIndex);
+    }
+
+    function prevLightbox() {
+      currentLightboxIndex = (currentLightboxIndex - 1 + totalPhotos) % totalPhotos;
+      openLightbox(currentLightboxIndex);
+    }
+
+    lightboxClose.addEventListener("click", closeLightbox);
+    lightboxBackdrop.addEventListener("click", closeLightbox);
+    lightboxNextBtn.addEventListener("click", nextLightbox);
+    lightboxPrevBtn.addEventListener("click", prevLightbox);
+
+    document.addEventListener("keydown", (e) => {
+      if (romanticLightbox.classList.contains("hidden")) return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowRight") nextLightbox();
+      if (e.key === "ArrowLeft") prevLightbox();
+    });
+
+    // Initialize Komedi Putar
+    initCarousel();
+    requestAnimationFrame(animateCarousel);
   </script>
 </body>
 
