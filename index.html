@@ -2335,36 +2335,37 @@
     // ==========================================
     const carouselPhotos = [
       // Malang (Awal Cerita & Canda Tawa)
-      { id: 1, src: "foto/carousel/c01.jpg", title: "Awal Mula di Malang ♡", loc: "Malang", chapter: "Awal Cerita", note: "Hari pertama melangkah menemuimu, awal dari kisah terindah kita." },
-      { id: 2, src: "foto/carousel/c02.jpg", title: "Senyuman Manis Berdua", loc: "Malang", chapter: "Awal Cerita", note: "Senyum pertama yang langsung bikin hati ini tenang dan nyaman." },
-      { id: 3, src: "foto/carousel/c03.jpg", title: "Tawa Hangat Pertama", loc: "Malang", chapter: "Awal Cerita", note: "Kecanggungan yang pelan-pelan mencair jadi tawa lepas kita berdua." },
-      { id: 4, src: "foto/carousel/c04.jpg", title: "Tawa & Canda Usil di Malang ♡", loc: "Malang", chapter: "Kenangan di Malang", note: "Wajah jahil dan tawa lepasmu di Malang yang selalu bikin hari-hariku jauh lebih ceria." },
-      { id: 5, src: "foto/carousel/c05.jpg", title: "Pose Gemas Berdua di Malang", loc: "Malang", chapter: "Kenangan di Malang", note: "Duduk berdua di Malang sambil bercanda dan membuat pose-pose lucu tanpa canggung." },
-      { id: 6, src: "foto/carousel/c06.jpg", title: "Dekat & Hangat di Malang", loc: "Malang", chapter: "Kenangan di Malang", note: "Senyum hangat berdua di Malang, saat waktu terasa berhenti hanya untuk kita." },
+      { id: 1, src: "foto/carousel/c01.jpg", title: "Awal Cerita Kita di Malang", loc: "Malang", chapter: "Hari Pertama", note: "Masih inget banget rasa deg-degannya waktu pertama kali nyamperin kamu ke Malang. Tapi pas lihat senyummu langsung, rasa gugupnya langsung lumer." },
+      { id: 2, src: "foto/carousel/c02.jpg", title: "Senyum Pertama yang Menenangkan", loc: "Malang", chapter: "Pertemuan Awal", note: "Senyum manismu hari itu beneran bikin hati ini langsung tenang dan nyaman, kayak udah kenal lama banget." },
+      { id: 3, src: "foto/carousel/c03.jpg", title: "Mulai Nyaman Berdua", loc: "Malang", chapter: "Pertemuan Awal", note: "Dari yang awalnya masih agak canggung, pelan-pelan mencair jadi obrolan seru dan rasa nyaman yang bikin betah." },
+      { id: 4, src: "foto/carousel/c04.jpg", title: "Muka Jahil Kesayangan", loc: "Malang", chapter: "Tawa di Malang", note: "Tampang usil dan tingkah jahilmu yang selalu sukses bikin aku ketawa ngakak. Nggak pernah gagal bikin hari jadi seru." },
+      { id: 5, src: "foto/carousel/c05.jpg", title: "Bercanda Tanpa Jaim", loc: "Malang", chapter: "Tawa di Malang", note: "Lucu ya, baru sebentar ketemu tapi kita berdua udah bisa se-lepas dan se-bocor ini kalau lagi bercanda berdua." },
+      { id: 6, src: "foto/carousel/c06.jpg", title: "Tenang di Dekatmu", loc: "Malang", chapter: "Tawa di Malang", note: "Ngobrol ngalor-ngidul berdua, waktu rasanya jalan cepet banget kalau lagi sama kamu." },
+
       // Surabaya (Kenangan Manis & Perjalanan di Surabaya)
-      { id: 7, src: "foto/carousel/c07.jpg", title: "Rasa Nyaman di Surabaya ♡", loc: "Surabaya", chapter: "Kenangan di Surabaya", note: "Saat kepalamu bersandar nyaman di bahuku saat kita menghabiskan waktu bersama di Surabaya." },
-      { id: 8, src: "foto/carousel/c08.jpg", title: "Senyum Bahagia di Perjalanan", loc: "Surabaya", chapter: "Kenangan di Surabaya", note: "Bercanda dan menikmati perjalanan berdua di dalam mobil saat di Surabaya, tawa yang selalu kurindukan." },
-      { id: 9, src: "foto/carousel/c09.jpg", title: "Tawa Lepas di Perjalanan ♡", loc: "Surabaya", chapter: "Kenangan di Surabaya", note: "Tawa paling lepas dan senyum ceria kita berdua di mobil saat di Surabaya." },
-      { id: 10, src: "foto/carousel/c10.jpg", title: "Senyum Dekat & Hangat", loc: "Surabaya", chapter: "Kenangan di Surabaya", note: "Kedekatan dan senyum manis kita berdua di dalam mobil yang selalu menenangkan hati saat di Surabaya." },
-      { id: 11, src: "foto/carousel/c11.jpg", title: "Selfie Manis Berdua di Surabaya", loc: "Surabaya", chapter: "Kenangan di Surabaya", note: "Momen selfie berdua di Surabaya dengan senyum manismu yang selalu meneduhkan hati." },
+      { id: 7, src: "foto/carousel/c07.jpg", title: "Pundak Ini Selalu Jadi Rumahmu", loc: "Surabaya", chapter: "Momen di Surabaya", note: "Momen pas kamu nyandarin kepala di bahuku dengan tenang... rasanya semua capek dan bisingnya dunia langsung reda seketika." },
+      { id: 8, src: "foto/carousel/c08.jpg", title: "Nyanyi Bareng di Mobil", loc: "Surabaya", chapter: "Momen di Surabaya", note: "Keliling jalanan Surabaya berdua sambil dengerin musik bareng. Macet pun tetep kerasa seru dan hangat karena ada kamu." },
+      { id: 9, src: "foto/carousel/c09.jpg", title: "Tawa Lepas Sepanjang Jalan", loc: "Surabaya", chapter: "Momen di Surabaya", note: "Salah satu momen tawa paling bahagia yang terekam kamera. Bahagia itu ternyata sesederhana duduk sampingan sama kamu." },
+      { id: 10, src: "foto/carousel/c10.jpg", title: "Gemasnya Nggak Ada Lawan", loc: "Surabaya", chapter: "Momen di Surabaya", note: "Tiap kali liat foto ini, selalu senyum-senyum sendiri inget betapa manis dan gemasnya tingkahmu waktu kita berdua di mobil." },
+      { id: 11, src: "foto/carousel/c11.jpg", title: "Ikutan Nyempil di Fotomu", loc: "Surabaya", chapter: "Momen di Surabaya", note: "Tiap kamu mau selfie cantik, bawaannya aku selalu pengen ikutan nyempil biar ada kenang-kenangan kompak berdua." },
 
       // Photobooth (Photomatic Hug & Playful)
-      { id: 12, src: "foto/carousel/c12.jpg", title: "Saling Menatap Penuh Rasa", loc: "Photobooth", chapter: "Anniversary 1th", note: "Di balik tatapanmu, aku selalu menemukan rumah untuk pulang." },
-      { id: 13, src: "foto/carousel/c13.jpg", title: "Tertawa Lepas Berdua", loc: "Photobooth", chapter: "Anniversary 1th", note: "Tawa paling jujur dan lepas tanpa beban di dunia." },
-      { id: 14, src: "foto/carousel/c14.jpg", title: "Pose Peace ✌️ Berdua", loc: "Photobooth", chapter: "Anniversary 1th", note: "Dua insan yang saling melengkapi dalam damai dan kasih." },
+      { id: 12, src: "foto/carousel/c12.jpg", title: "Hangatnya Masih Terasa", loc: "Photobooth", chapter: "Satu Tahun Kita", note: "Salah satu foto yang paling berkesan. Pelukan yang selalu ngingetin aku betapa tulus dan dalamnya rasa sayang ini untukmu." },
+      { id: 13, src: "foto/carousel/c13.jpg", title: "Dua Orang Paling Bahagia", loc: "Photobooth", chapter: "Satu Tahun Kita", note: "Ketawa lepas sampai mata merem berdua. Nggak ada yang perlu ditutup-tutupi kalau udah di samping kamu." },
+      { id: 14, src: "foto/carousel/c14.jpg", title: "Bocah Banget Tapi Senang", loc: "Photobooth", chapter: "Satu Tahun Kita", note: "Gaya andalan dua bocah kalau udah kehabisan ide pose di depan kamera photobox." },
 
       // Anniversary Cafe (Merayakan 365 Hari)
-      { id: 15, src: "foto/carousel/c15.jpg", title: "Senyum Cantik Bersamamu", loc: "Anniversary Cafe", chapter: "365 Hari", note: "Kecantikan senyummu yang tak akan pernah pudar oleh waktu." },
-      { id: 16, src: "foto/carousel/c16.jpg", title: "Candaan Melet & Ngakak", loc: "Anniversary Cafe", chapter: "365 Hari", note: "Selalu ada tawa ngakak di setiap obrolan kita." },
-      { id: 17, src: "foto/carousel/c17.jpg", title: "Menutup Mulut Tertawa", loc: "Anniversary Cafe", chapter: "365 Hari", note: "Tawa malu-malu manis yang paling kusukai dari dirimu." },
-      { id: 18, src: "foto/carousel/c18.jpg", title: "Baju Senada di Sofa Hijau", loc: "Anniversary Cafe", chapter: "365 Hari", note: "Duduk berdampingan merayakan perjalanan satu tahun kita." },
-      { id: 19, src: "foto/carousel/c19.jpg", title: "Kepala Saling Menempel", loc: "Anniversary Cafe", chapter: "365 Hari", note: "Kedekatan dua jiwa yang pernah berjuang bersama-sama." },
-      { id: 20, src: "foto/carousel/c20.jpg", title: "Merayakan 365 Hari", loc: "Anniversary Cafe", chapter: "365 Hari", note: "Kue kecil dengan rasa syukur yang begitu besar untukmu." },
-      { id: 21, src: "foto/carousel/c21.jpg", title: "Pose Duck Face Gemas", loc: "Anniversary Cafe", chapter: "365 Hari", note: "Tingkah lucu dan menggemaskanmu yang tiada duanya di dunia." },
-      { id: 22, src: "foto/carousel/c22.jpg", title: "Pose Kedip & Muka Lucu", loc: "Anniversary Cafe", chapter: "365 Hari", note: "Tak pernah bosan melihat berbagai macam ekspresi wajahmu." },
-      { id: 23, src: "foto/carousel/c23.jpg", title: "Pose Peace di Mata", loc: "Anniversary Cafe", chapter: "365 Hari", note: "Tetap ceria dan manis di hari yang sangat spesial ini." },
-      { id: 24, src: "foto/carousel/c24.jpg", title: "Pose Rock 🤘 & Muka Gemas", loc: "Anniversary Cafe", chapter: "365 Hari", note: "Keseruan kita yang tak akan pernah terganti oleh apa pun." },
-      { id: 25, src: "foto/carousel/c25.jpg", title: "Senyum Pamer Gigi Bahagia", loc: "Anniversary Cafe", chapter: "365 Hari", note: "Terima kasih untuk 365 hari yang luar biasa, sayangku ♡" }
+      { id: 15, src: "foto/carousel/c15.jpg", title: "Cantiknya Bubub Hari Itu", loc: "Anniversary Cafe", chapter: "365 Hari Kita", note: "Hari itu kamu manis dan cantik banget. Duduk berdua ngerayain 365 hari perjalanan kita yang luar biasa." },
+      { id: 16, src: "foto/carousel/c16.jpg", title: "Kompak Jahil Nggak Kenal Tempat", loc: "Anniversary Cafe", chapter: "365 Hari Kita", note: "Udah pakai baju rapi senada pun tetep aja ujung-ujungnya keluar tingkah konyol dan jahilnya kita." },
+      { id: 17, src: "foto/carousel/c17.jpg", title: "Ketawa Sampai Tutup Mulut", loc: "Anniversary Cafe", chapter: "365 Hari Kita", note: "Momen waktu kamu ketawa ngakak gara-gara obrolan konyol kita sampai harus nutup mulut saking malunya." },
+      { id: 18, src: "foto/carousel/c18.jpg", title: "365 Hari Melangkah Bersama", loc: "Anniversary Cafe", chapter: "365 Hari Kita", note: "Satu tahun yang penuh warna, tawa, dan cerita. Bersyukur banget pernah berjuang dan melangkah sejauh ini bareng kamu." },
+      { id: 19, src: "foto/carousel/c19.jpg", title: "Tempat Paling Nyaman di Dunia", loc: "Anniversary Cafe", chapter: "365 Hari Kita", note: "Cukup nempel dan deket kayak gini, semua rasa lelah rasanya langsung hilang diganti rasa tenang." },
+      { id: 20, src: "foto/carousel/c20.jpg", title: "Piring Kecil Penuh Makna ♡", loc: "Anniversary Cafe", chapter: "365 Hari Kita", note: "Piring kue kecil dengan tulisan itu jadi saksi betapa bahagianya kita hari itu merayakan cerita yang kita jaga." },
+      { id: 21, src: "foto/carousel/c21.jpg", title: "Gemasnya Nggak Pernah Habis", loc: "Anniversary Cafe", chapter: "365 Hari Kita", note: "Dari sekian banyak foto, pose manyun lucumu ini yang selalu berhasil bikin aku gemas setengah mati." },
+      { id: 22, src: "foto/carousel/c22.jpg", title: "Selalu Bikin Hari Jadi Ceria", loc: "Anniversary Cafe", chapter: "365 Hari Kita", note: "Ada aja ekspresi lucu yang kamu keluarin. Nggak pernah ada kata bosen kalau udah ngehabisin waktu sama kamu." },
+      { id: 23, src: "foto/carousel/c23.jpg", title: "Nggak Pernah Kehabisan Gaya", loc: "Anniversary Cafe", chapter: "365 Hari Kita", note: "Bercanda dan bergaya bebas sesuka hati, yang penting tawa kita berdua tetap ada di setiap jepretan." },
+      { id: 24, src: "foto/carousel/c24.jpg", title: "Serunya Dunia Bareng Kamu", loc: "Anniversary Cafe", chapter: "365 Hari Kita", note: "Momen-momen random dan seru kayak gini yang bakal selalu kusimpan rapat di dalam ingatan." },
+      { id: 25, src: "foto/carousel/c25.jpg", title: "Terima Kasih Pernah Ada, Bubub ♡", loc: "Anniversary Cafe", chapter: "365 Hari Kita", note: "Terima kasih untuk setiap tawa, cerita, dan kebersamaan yang pernah kita lewati. Cerita kita selalu punya tempat terindah di hatiku." }
     ];
 
     const cylinder = document.getElementById("carouselCylinder");
