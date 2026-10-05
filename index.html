@@ -440,11 +440,34 @@
     }
 
     .finale-message {
-      width: min(100%, 650px);
+      width: min(100%, 680px);
       margin: 0 auto;
       color: var(--muted);
       line-height: 1.95;
-      font-size: 1.05rem;
+      font-size: 1.02rem;
+      text-align: left;
+      background: rgba(255, 255, 255, 0.5);
+      padding: 28px 26px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 10px 30px rgba(58, 43, 47, 0.05);
+    }
+
+    .finale-message p {
+      margin: 0 0 1.25em;
+    }
+
+    .finale-message p:last-child {
+      margin-bottom: 0;
+    }
+
+    .finale-message .highlight-final {
+      display: block;
+      margin-top: 1.5em;
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--accent-dark);
+      text-align: center;
     }
 
     .gallery {
@@ -1187,24 +1210,29 @@
     <!-- 3. Ending -->
     <section class="finale hidden" id="finale">
       <div class="finale-inner">
-        <span class="mini-label">and this is still only the beginning</span>
-        <h2>Terima kasih sudah menjadi rumah. ❤️</h2>
+        <span class="mini-label">untuk setiap hal yang pernah kita lewati</span>
+        <h2>Untuk Kita dan Semua yang Pernah Ada. ❤️</h2>
 
-        <p class="finale-message" id="finalMessage">
-          Terima kasih untuk semua tawa, cerita, sabar, perhatian, dan momen kecil
-          yang mungkin terlihat biasa tetapi selalu punya tempat khusus buat aku.
-          Semoga di tahun berikutnya kita tetap memilih satu sama lain,
-          tetap bertumbuh, dan tetap punya banyak alasan untuk tersenyum bersama.
-          Happy anniversary, Sayang.
-        </p>
+        <div class="finale-message" id="finalMessage">
+          <p>Akhir-akhir ini aku baru sadar kalau ternyata ada beberapa hal yang nggak semudah itu buat dianggap biasa.</p>
+          <p>Kadang pas lagi sibuk semuanya terasa baik-baik aja, tapi begitu keadaan mulai sepi, entah kenapa pikiran suka balik ke banyak hal yang pernah dilewati. Dari Malang, Surabaya, sampai akhirnya kembali ke Malang lagi. Lucu ya, ternyata perjalanan-perjalanan sederhana begitu bisa ninggalin banyak hal di kepala.</p>
+          <p>Mungkin selama ini aku juga terlalu sibuk melihat semuanya dari sisi aku sendiri. Terlalu banyak mempertahankan apa yang aku rasa benar, sampai lupa kalau setiap orang punya cara sendiri untuk merasa, berpikir, dan menghadapi sesuatu.</p>
+          <p>Sekarang aku cuma lagi belajar untuk lebih tenang. Nggak buru-buru mengambil kesimpulan, nggak selalu memaksakan apa yang aku inginkan, dan mencoba memahami sesuatu dari sisi yang berbeda.</p>
+          <p>Bukan berarti semuanya tiba-tiba terasa ringan. Ada beberapa malam yang masih terasa panjang, ada momen-momen tertentu yang tanpa sengaja membawa pikiran ke tempat yang sama. Kadang ada banyak hal yang rasanya ingin diceritakan, tapi mungkin untuk sekarang lebih baik disimpan dulu.</p>
+          <p>Aku juga mulai ngerti kalau beberapa hal mungkin memang nggak bisa diperbaiki cuma lewat kata-kata. Ada yang butuh waktu, ada yang butuh jarak, dan ada juga yang mungkin baru bisa terlihat lewat sikap.</p>
+          <p>Aku nggak tahu nanti semuanya akan membawa kita ke mana. Aku juga nggak mau memaksakan sesuatu yang mungkin sekarang belum waktunya.</p>
+          <p>Cuma kalau suatu hari masih ada ruang untuk ngobrol tanpa membawa semua luka yang lama, mungkin aku masih ingin duduk dan mendengarkan. Nggak untuk mengulang semuanya seperti dulu, tapi mungkin untuk memahami hal-hal yang dulu belum sempat kita pahami.</p>
+          <p>Untuk sekarang, aku cuma sedang belajar menerima bahwa ternyata ada beberapa orang dan beberapa cerita yang nggak bisa begitu saja menjadi biasa, meskipun kita sudah berusaha terlihat baik-baik saja.</p>
+          <p class="highlight-final">Dan mungkin, kamu adalah salah satunya.</p>
+        </div>
 
         <div class="gallery" id="gallery">
-          <div class="gallery-card" style="--r:-5deg"><img src="foto/01.jpg" alt=""></div>
-          <div class="gallery-card" style="--r:3deg"><img src="foto/02.jpg" alt=""></div>
-          <div class="gallery-card" style="--r:-2deg"><img src="foto/03.jpg" alt=""></div>
-          <div class="gallery-card" style="--r:5deg"><img src="foto/04.jpg" alt=""></div>
-          <div class="gallery-card" style="--r:-4deg"><img src="foto/05.jpg" alt=""></div>
-          <div class="gallery-card" style="--r:2deg"><img src="foto/06.jpg" alt=""></div>
+          <div class="gallery-card" style="--r:-5deg"><img src="foto/g1.jpg" alt="Kenangan Malang"></div>
+          <div class="gallery-card" style="--r:3deg"><img src="foto/g2.jpg" alt="Kenangan Surabaya"></div>
+          <div class="gallery-card" style="--r:-2deg"><img src="foto/g3.jpg" alt="Kenangan Bersama"></div>
+          <div class="gallery-card" style="--r:5deg"><img src="foto/g4.jpg" alt="Anniversary Sofia"></div>
+          <div class="gallery-card" style="--r:-4deg"><img src="foto/g5.jpg" alt="Anniversary Uli"></div>
+          <div class="gallery-card" style="--r:2deg"><img src="foto/g6.jpg" alt="Anniversary Kita"></div>
         </div>
 
         <button class="primary-btn" id="replayBtn">Lihat Lagi ↻</button>
@@ -1345,52 +1373,52 @@
     const scenes = [
       {
         photo: "foto/01.jpg",
-        caption: "the beginning ♡",
-        kicker: "01 · Awal Cerita",
-        title: "Semua berawal dari satu pertemuan.",
-        text: "Aku tidak tahu waktu itu perjalanan kita akan sejauh ini. Tapi sekarang, aku bersyukur karena hari itu akhirnya mempertemukan aku dengan kamu."
+        caption: "Malang, the very first step ♡",
+        kicker: "01 · Malang, Awal Segalanya",
+        title: "Semua dimulai saat langkahku menuju ke kamu.",
+        text: "Aku ingat betul hari ketika aku memutuskan untuk nyamperin kamu ke Malang. Ada rasa gugup, tapi rasa ingin bertemu kamu jauh lebih besar dari jarak mana pun. Dan saat melihat senyummu langsung di depanku, aku tahu hari itu adalah awal dari cerita yang paling berharga."
       },
       {
         photo: "foto/02.jpg",
-        caption: "first little memories",
-        kicker: "02 · Tentang Kamu",
-        title: "Lalu kamu mulai jadi bagian dari hariku.",
-        text: "Dari obrolan sederhana, bercanda hal random, sampai cerita yang tidak pernah habis. Pelan-pelan, kehadiran kamu jadi sesuatu yang selalu aku tunggu."
+        caption: "tawa pertama kita",
+        kicker: "02 · Tawa yang Mengubah Segalanya",
+        title: "Ternyata bahagia sesederhana bercanda sama kamu.",
+        text: "Dari obrolan canggung sampai tawa lepas dan muka-muka jahil kita. Di Malang waktu itu, kamu pelan-pelan bikin aku nyaman jadi diriku sendiri. Nggak butuh hal mewah, cukup duduk berdua, saling ledek, dan tertawa bareng kamu udah bikin duniaku terasa jauh lebih hangat."
       },
       {
         photo: "foto/03.jpg",
-        caption: "we laughed a lot here",
-        kicker: "03 · Momen Kecil",
-        title: "Ternyata bahagia sering sesederhana ini.",
-        text: "Bukan selalu tentang tempat yang indah atau hadiah besar. Kadang cukup ada kamu, satu foto, satu tawa, lalu hari biasa berubah jadi kenangan."
+        caption: "Surabaya with you ♡",
+        kicker: "03 · Surabaya, Giliranmu Datang",
+        title: "Melihatmu ada di kotaku rasanya luar biasa.",
+        text: "Lalu giliran kamu yang datang menyamperi aku ke Surabaya. Jalanan kota yang biasanya terasa biasa dan padat, tiba-tiba berubah jadi tempat paling menyenangkan cuma karena ada kamu di sampingku di dalam mobil, bernyanyi bareng dan tertawa lepas berdua."
       },
       {
         photo: "foto/04.jpg",
-        caption: "still choosing you",
-        kicker: "04 · Perjalanan",
-        title: "Kita tidak selalu punya hari yang mudah.",
-        text: "Ada capek, beda pendapat, dan hari ketika semuanya terasa berat. Tapi aku suka satu hal: sejauh ini, kita masih belajar untuk tetap saling mengerti."
+        caption: "a place called home",
+        kicker: "04 · Rasa Nyaman yang Nyata",
+        title: "Saat pundakku jadi tempat kepalamu bersandar.",
+        text: "Momen ketika kamu menyandarkan kepalamu di bahuku dengan tenang... saat itu aku sadar, kamu bukan lagi sekadar orang yang aku sayang, tapi kamu sudah jadi rumah tempat aku ingin pulang dari segala lelahnya dunia."
       },
       {
         photo: "foto/05.jpg",
-        caption: "my favorite person",
-        kicker: "05 · Terima Kasih",
-        title: "Terima kasih untuk hal-hal yang mungkin tidak kamu sadari.",
-        text: "Untuk perhatian kecilmu, kesabaranmu, cara kamu mendengarkan, dan cara kamu tetap ada. Banyak hal sederhana darimu yang ternyata sangat berarti buat aku."
+        caption: "kembali ke Malang · 365 hari",
+        kicker: "05 · Kembali ke Malang, 365 Hari Kita",
+        title: "Satu tahun membawa kita kembali ke tempat awal.",
+        text: "Perjalanan satu tahun membawa kita kembali lagi ke Malang. Memakai baju senada, duduk berdua merayakan 365 hari yang sudah kita lewati bersama. Ada begitu banyak hal yang kita perjuangkan sampai di titik itu, dan aku sangat bersyukur pernah melewati semuanya bersamamu."
       },
       {
         photo: "foto/06.jpg",
-        caption: "more memories, please",
-        kicker: "06 · Hari Ini",
-        title: "Kalau boleh memilih lagi, aku masih ingin cerita ini.",
-        text: "Bukan karena semuanya sempurna, tetapi karena kita punya begitu banyak alasan untuk terus bertumbuh dan membuat lebih banyak kenangan bersama."
+        caption: "happy 365 days ♡",
+        kicker: "06 · Happy 365 Days",
+        title: "Merayakan setiap tawa yang pernah kita bagi.",
+        text: "Piring kecil bertuliskan 'Happy Anniversary 1st' dan 'Happy 365 Days' itu jadi saksi betapa bahagianya kita hari itu. Melihat tawamu yang begitu lepas sambil memegang kue itu adalah salah satu momen paling indah yang pernah terekam di ingatanku."
       },
       {
         photo: "foto/07.jpg",
-        caption: "to be continued... ♡",
-        kicker: "07 · Untuk Kita",
-        title: "Ini bukan halaman terakhir.",
-        text: "Ini cuma satu penanda kecil dari perjalanan kita. Masih ada banyak tempat, cerita, foto jelek, tawa receh, dan mimpi yang ingin aku jalani bersama kamu."
+        caption: "always in my heart",
+        kicker: "07 · Dari Lubuk Hati Terdalam",
+        title: "Walau hari ini tidak mudah, cintaku tak pernah luntur.",
+        text: "Kita tahu keadaan sekarang sedang berada di masa yang sangat sulit. Tapi lewat semua foto dan memori ini, aku cuma ingin kamu tahu satu hal: rasa sayang dan syukurku pernah memilikimu di hidupku itu nyata, dan tidak pernah berkurang sedikit pun."
       }
     ];
 
@@ -1896,14 +1924,20 @@
     document.getElementById("partnerNameIntro").textContent = CONFIG.partnerName;
     document.getElementById("anniversaryDate").textContent = CONFIG.anniversaryDate;
     document.getElementById("signature").textContent =
-      `— dari ${CONFIG.yourName}, untuk ${CONFIG.partnerName} ♡`;
+      `— dari Kakak (Uli), untuk Bububku ♡`;
 
-    document.getElementById("finalMessage").innerHTML =
-      `Terima kasih untuk semua tawa, cerita, sabar, perhatian, dan momen kecil
-       yang mungkin terlihat biasa tetapi selalu punya tempat khusus buat aku.
-       Semoga di tahun berikutnya kita tetap memilih satu sama lain,
-       tetap bertumbuh, dan tetap punya banyak alasan untuk tersenyum bersama.
-       <strong>Happy anniversary, ${CONFIG.partnerName}.</strong>`;
+    document.getElementById("finalMessage").innerHTML = `
+      <p>Akhir-akhir ini aku baru sadar kalau ternyata ada beberapa hal yang nggak semudah itu buat dianggap biasa.</p>
+      <p>Kadang pas lagi sibuk semuanya terasa baik-baik aja, tapi begitu keadaan mulai sepi, entah kenapa pikiran suka balik ke banyak hal yang pernah dilewati. Dari Malang, Surabaya, sampai akhirnya kembali ke Malang lagi. Lucu ya, ternyata perjalanan-perjalanan sederhana begitu bisa ninggalin banyak hal di kepala.</p>
+      <p>Mungkin selama ini aku juga terlalu sibuk melihat semuanya dari sisi aku sendiri. Terlalu banyak mempertahankan apa yang aku rasa benar, sampai lupa kalau setiap orang punya cara sendiri untuk merasa, berpikir, dan menghadapi sesuatu.</p>
+      <p>Sekarang aku cuma lagi belajar untuk lebih tenang. Nggak buru-buru mengambil kesimpulan, nggak selalu memaksakan apa yang aku inginkan, dan mencoba memahami sesuatu dari sisi yang berbeda.</p>
+      <p>Bukan berarti semuanya tiba-tiba terasa ringan. Ada beberapa malam yang masih terasa panjang, ada momen-momen tertentu yang tanpa sengaja membawa pikiran ke tempat yang sama. Kadang ada banyak hal yang rasanya ingin diceritakan, tapi mungkin untuk sekarang lebih baik disimpan dulu.</p>
+      <p>Aku juga mulai ngerti kalau beberapa hal mungkin memang nggak bisa diperbaiki cuma lewat kata-kata. Ada yang butuh waktu, ada yang butuh jarak, dan ada juga yang mungkin baru bisa terlihat lewat sikap.</p>
+      <p>Aku nggak tahu nanti semuanya akan membawa kita ke mana. Aku juga nggak mau memaksakan sesuatu yang mungkin sekarang belum waktunya.</p>
+      <p>Cuma kalau suatu hari masih ada ruang untuk ngobrol tanpa membawa semua luka yang lama, mungkin aku masih ingin duduk dan mendengarkan. Nggak untuk mengulang semuanya seperti dulu, tapi mungkin untuk memahami hal-hal yang dulu belum sempat kita pahami.</p>
+      <p>Untuk sekarang, aku cuma sedang belajar menerima bahwa ternyata ada beberapa orang dan beberapa cerita yang nggak bisa begitu saja menjadi biasa, meskipun kita sudah berusaha terlihat baik-baik saja.</p>
+      <p class="highlight-final">Dan mungkin, kamu adalah salah satunya.</p>
+    `;
 
     // If a photo is missing, show an elegant placeholder instead of broken image icon
     document.querySelectorAll("img").forEach(img => {

@@ -8,3 +8,6 @@ $RECYCLE.BIN/
 # Temporary & Log files
 *.tmp
 *.log
+
+# Raw media source folder (HEIC/MOV)
+foto/bububb/
