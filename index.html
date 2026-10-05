@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -28,8 +29,8 @@
       font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       color: var(--ink);
       background:
-        radial-gradient(circle at 15% 15%, rgba(255,255,255,.95), transparent 30%),
-        radial-gradient(circle at 85% 85%, rgba(255,255,255,.70), transparent 25%),
+        radial-gradient(circle at 15% 15%, rgba(255, 255, 255, .95), transparent 30%),
+        radial-gradient(circle at 85% 85%, rgba(255, 255, 255, .70), transparent 25%),
         linear-gradient(135deg, var(--bg-1), var(--bg-2));
       overflow-x: hidden;
     }
@@ -80,8 +81,15 @@
     }
 
     @keyframes float {
-      0%, 100% { transform: translate3d(0, 0, 0); }
-      50% { transform: translate3d(0, 18px, 0); }
+
+      0%,
+      100% {
+        transform: translate3d(0, 0, 0);
+      }
+
+      50% {
+        transform: translate3d(0, 18px, 0);
+      }
     }
 
     .tiny-heart {
@@ -104,15 +112,24 @@
       background: inherit;
     }
 
-    .tiny-heart::before { left: -5px; }
-    .tiny-heart::after { top: -5px; }
+    .tiny-heart::before {
+      left: -5px;
+    }
+
+    .tiny-heart::after {
+      top: -5px;
+    }
 
     @keyframes drift {
       from {
         transform: translateY(110vh) rotate(45deg) scale(.7);
         opacity: 0;
       }
-      15% { opacity: 1; }
+
+      15% {
+        opacity: 1;
+      }
+
       to {
         transform: translateY(-20vh) rotate(45deg) scale(1.2);
         opacity: 0;
@@ -132,16 +149,23 @@
       padding: 44px 28px 36px;
       text-align: center;
       background: var(--card);
-      border: 1px solid rgba(255,255,255,.7);
+      border: 1px solid rgba(255, 255, 255, .7);
       border-radius: 32px;
       box-shadow: var(--shadow);
       backdrop-filter: blur(18px);
-      animation: introIn .9s cubic-bezier(.2,.8,.2,1) both;
+      animation: introIn .9s cubic-bezier(.2, .8, .2, 1) both;
     }
 
     @keyframes introIn {
-      from { opacity: 0; transform: translateY(24px) scale(.98); }
-      to   { opacity: 1; transform: translateY(0) scale(1); }
+      from {
+        opacity: 0;
+        transform: translateY(24px) scale(.98);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
     }
 
     .mini-label {
@@ -195,14 +219,14 @@
       border-radius: 999px;
       background: var(--accent);
       color: white;
-      box-shadow: 0 12px 26px rgba(200,95,120,.26);
+      box-shadow: 0 12px 26px rgba(200, 95, 120, .26);
       font-weight: 700;
     }
 
     .primary-btn:hover {
       transform: translateY(-2px);
       background: var(--accent-dark);
-      box-shadow: 0 16px 30px rgba(200,95,120,.3);
+      box-shadow: 0 16px 30px rgba(200, 95, 120, .3);
     }
 
     .primary-btn:active {
@@ -236,18 +260,18 @@
       flex: 1;
       height: 6px;
       max-width: 310px;
-      background: rgba(255,255,255,.85);
+      background: rgba(255, 255, 255, .85);
       border-radius: 99px;
       overflow: hidden;
     }
 
-    .progress > span {
+    .progress>span {
       display: block;
       height: 100%;
       width: 0%;
       border-radius: inherit;
       background: linear-gradient(90deg, var(--accent), #e7a1b3);
-      transition: width .55s cubic-bezier(.2,.8,.2,1);
+      transition: width .55s cubic-bezier(.2, .8, .2, 1);
     }
 
     .scene-wrap {
@@ -266,15 +290,18 @@
     }
 
     .scene-wrap.show .photo-stage {
-      animation: reveal .72s cubic-bezier(.2,.8,.2,1) .05s forwards;
+      animation: reveal .72s cubic-bezier(.2, .8, .2, 1) .05s forwards;
     }
 
     .scene-wrap.show .copy-stage {
-      animation: reveal .72s cubic-bezier(.2,.8,.2,1) .25s forwards;
+      animation: reveal .72s cubic-bezier(.2, .8, .2, 1) .25s forwards;
     }
 
     @keyframes reveal {
-      to { opacity: 1; transform: translateY(0); }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .photo-card {
@@ -297,7 +324,7 @@
       aspect-ratio: 4 / 5;
       border-radius: 4px;
       background:
-        linear-gradient(135deg, rgba(200,95,120,.15), rgba(255,255,255,.5)),
+        linear-gradient(135deg, rgba(200, 95, 120, .15), rgba(255, 255, 255, .5)),
         #eee;
     }
 
@@ -357,7 +384,7 @@
     .quote-mark {
       display: block;
       margin-bottom: -10px;
-      color: rgba(200,95,120,.24);
+      color: rgba(200, 95, 120, .24);
       font-family: Georgia, serif;
       font-size: 5rem;
       line-height: 1;
@@ -375,18 +402,18 @@
     .secondary-btn {
       padding: 12px 18px;
       border-radius: 999px;
-      background: rgba(255,255,255,.65);
+      background: rgba(255, 255, 255, .65);
       color: var(--muted);
-      border: 1px solid rgba(255,255,255,.78);
+      border: 1px solid rgba(255, 255, 255, .78);
     }
 
     .secondary-btn:hover {
-      background: rgba(255,255,255,.95);
+      background: rgba(255, 255, 255, .95);
     }
 
     .hint {
       font-size: .78rem;
-      color: rgba(58,43,47,.45);
+      color: rgba(58, 43, 47, .45);
       text-align: center;
     }
 
@@ -433,7 +460,7 @@
       border: 7px solid white;
       border-bottom-width: 22px;
       border-radius: 4px;
-      box-shadow: 0 12px 26px rgba(78,46,55,.13);
+      box-shadow: 0 12px 26px rgba(78, 46, 55, .13);
       background: white;
       transform: rotate(var(--r));
       transition: transform .25s ease;
@@ -629,8 +656,13 @@
     }
 
     @keyframes spinDisc {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
     }
 
     .vinyl-groove {
@@ -696,8 +728,17 @@
     }
 
     @keyframes pulseDot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.85); }
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.4;
+        transform: scale(0.85);
+      }
     }
 
     /* Scrubber */
@@ -941,14 +982,32 @@
       animation: soundWave 1.2s ease-in-out infinite;
     }
 
-    .sound-wave.active span:nth-child(1) { animation-delay: 0.0s; }
-    .sound-wave.active span:nth-child(2) { animation-delay: 0.2s; }
-    .sound-wave.active span:nth-child(3) { animation-delay: 0.4s; }
-    .sound-wave.active span:nth-child(4) { animation-delay: 0.1s; }
+    .sound-wave.active span:nth-child(1) {
+      animation-delay: 0.0s;
+    }
+
+    .sound-wave.active span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .sound-wave.active span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    .sound-wave.active span:nth-child(4) {
+      animation-delay: 0.1s;
+    }
 
     @keyframes soundWave {
-      0%, 100% { height: 3px; }
-      50% { height: 13px; }
+
+      0%,
+      100% {
+        height: 3px;
+      }
+
+      50% {
+        height: 13px;
+      }
     }
 
     .music-btn {
@@ -988,8 +1047,15 @@
     }
 
     @keyframes buttonPrompt {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(200, 95, 120, 0.6); }
-      50% { box-shadow: 0 0 0 10px rgba(200, 95, 120, 0); }
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(200, 95, 120, 0.6);
+      }
+
+      50% {
+        box-shadow: 0 0 0 10px rgba(200, 95, 120, 0);
+      }
     }
 
     @media (max-width: 760px) {
@@ -1039,6 +1105,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
+
       *,
       *::before,
       *::after {
@@ -1050,6 +1117,7 @@
     }
   </style>
 </head>
+
 <body>
   <main class="app">
     <div class="orb one"></div>
@@ -1075,7 +1143,7 @@
           tapi potongan kecil dari perjalanan kita yang paling ingin aku simpan.
         </p>
         <button class="primary-btn" id="openStoryBtn">Buka Cerita Kita →</button>
-        <div class="date" id="anniversaryDate">Tanggal Anniversary</div>
+        <div class="date" id="anniversaryDate">06.10.2026</div>
       </div>
     </section>
 
@@ -1140,7 +1208,7 @@
         </div>
 
         <button class="primary-btn" id="replayBtn">Lihat Lagi ↻</button>
-        <div class="signature" id="signature">— dari Nama Kamu, untuk Nama Dia ♡</div>
+        <div class="signature" id="signature">— dari Kakak (Uli), untuk Bububku ♡</div>
       </div>
     </section>
 
@@ -1159,7 +1227,8 @@
             <div class="player-subtitle" id="playerSubtitle">Andmesh · Anugerah Terindah</div>
           </div>
         </div>
-        <button class="player-minimize" id="minimizePlayerBtn" title="Tutup pemutar" aria-label="Tutup pemutar">×</button>
+        <button class="player-minimize" id="minimizePlayerBtn" title="Tutup pemutar"
+          aria-label="Tutup pemutar">×</button>
       </div>
 
       <!-- Mode Switch Tabs -->
@@ -1204,7 +1273,8 @@
           </button>
           <div class="volume-wrap">
             <button class="ctrl-btn vol-btn" id="volBtn" title="Bisu / Nyalakan Suara" type="button">🔊</button>
-            <input type="range" class="vol-slider" id="volSlider" min="0" max="1" step="0.05" value="0.85" title="Volume">
+            <input type="range" class="vol-slider" id="volSlider" min="0" max="1" step="0.05" value="0.85"
+              title="Volume">
           </div>
         </div>
 
@@ -1215,7 +1285,9 @@
             <input type="file" id="audioFileInput" accept="audio/*" class="sr-only" />
           </label>
           <div class="audio-source-note" id="audioSourceNote">
-            💡 Simpan file <code class="code-tag">lagu.mp3</code> atau <code class="code-tag">anugerah_terindah.mp3</code> di folder yang sama untuk otomatis diputar, atau pilih file lagu lewat tombol di atas.
+            💡 Simpan file <code class="code-tag">lagu.mp3</code> atau <code
+              class="code-tag">anugerah_terindah.mp3</code> di folder yang sama untuk otomatis diputar, atau pilih file
+            lagu lewat tombol di atas.
           </div>
         </div>
       </div>
@@ -1223,13 +1295,9 @@
       <!-- Tab Content: YouTube Mode -->
       <div class="tab-pane" id="tabYoutubePane">
         <div class="player-frame-wrap">
-          <iframe
-            id="youtubeMusic"
-            title="Andmesh - Anugerah Terindah"
-            allow="autoplay; encrypted-media; picture-in-picture"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          ></iframe>
+          <iframe id="youtubeMusic" title="Andmesh - Anugerah Terindah"
+            allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen></iframe>
         </div>
         <div class="yt-info-bar">
           <a href="https://www.youtube.com/watch?v=kYJj8wS1r00" target="_blank" rel="noopener" class="yt-direct-link">
@@ -1269,9 +1337,9 @@
     */
 
     const CONFIG = {
-      yourName: "Nama Kamu",
-      partnerName: "Nama Dia",
-      anniversaryDate: "Tanggal Anniversary"
+      yourName: "Rahmat Auliya",
+      partnerName: "Sofia Rahma Pertiwi",
+      anniversaryDate: "06.10.2026"
     };
 
     const scenes = [
@@ -1812,8 +1880,8 @@
     // Close player card when clicking outside
     document.addEventListener("click", e => {
       if (!musicPlayerCard.contains(e.target) &&
-          !musicBtn.contains(e.target) &&
-          !songLabel.contains(e.target)) {
+        !musicBtn.contains(e.target) &&
+        !songLabel.contains(e.target)) {
         musicPlayerCard.classList.remove("active");
       }
     });
@@ -1933,4 +2001,5 @@
     }, { passive: true });
   </script>
 </body>
+
 </html>
